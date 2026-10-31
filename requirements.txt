@@ -1,0 +1,30 @@
+# finance-delivery FastAPI backend — pinned to the versions verified working
+# on Python 3.12 locally (2026-09-16). Do not unpin casually: these exact
+# versions are what the Gmail Pub/Sub + Supabase JWKS + AES-256-GCM pipelines
+# were tested against.
+fastapi==0.141.1
+uvicorn[standard]==0.50.0
+pydantic==2.12.5
+pydantic-settings==2.14.2
+PyJWT==2.13.0
+cryptography==49.0.0
+pandas==2.1.1
+# pandas 2.1.1 is compiled against numpy 1.x; unpinned, pip pulls numpy 2.x
+# and the pandas C extensions abort with "numpy.dtype size changed" (ABI break).
+# Pin to the LOCAL numpy that was verified working with pandas 2.1.1.
+numpy==1.26.4
+# LINE MAN menu-sales arrive as .xlsx; pd.ExcelFile() needs the openpyxl engine.
+# MISSING from the first Cloud Run image -> "0 of 2 files processed; 2 rejected
+# ... Missing optional dependency 'openpyxl'". Pin the version verified locally.
+openpyxl==3.1.5
+slowapi==0.1.10
+supabase==2.31.0
+requests==2.34.2
+stripe==15.6.1
+python-multipart==0.0.32
+httpx==0.28.1
+# Grab settlement attachments arrive as PDF (parse_grab_pdf uses pdfplumber).
+# pdfplumber was MISSING from the first Cloud Run image, so every Grab PDF
+# raised "pdfplumber is not installed" and produced zero records. Pin the
+# version verified locally (pdfplumber 0.11 pulls pdfminer.six + Pillow).
+pdfplumber==0.11.6

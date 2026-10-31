@@ -1,0 +1,17 @@
+# Keep secrets + non-runtime files out of the Cloud Run build context.
+.env
+.env.*
+!.env.example
+web/
+docs/
+tests/
+samples/
+scripts/
+supabase/
+migrations/
+*.md
+.git/
+.gitignore
+__pycache__/
+*.py[cod]
+.DS_Store

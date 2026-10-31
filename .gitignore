@@ -1,0 +1,66 @@
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+web/.env.local
+web/.env.*.local
+.envrc
+
+# Dependencies and Python environments
+node_modules/
+web/node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Build output and framework caches
+.next/
+web/.next/
+out/
+dist/
+build/
+.vercel/
+.turbo/
+supabase/.temp/
+*.tsbuildinfo
+coverage/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Logs, local databases, and runtime artifacts
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+
+# Private business exports and settlement source files
+samples/
+private-data/
+exports/
+*.pdf
+*.csv
+*.xls
+*.xlsx
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local scratch, debug, and reviewer artifacts
+DEBUG_*.md
+web/DEBUG_*.md
+docs/_builder_*.txt
+docs/_reviewer_*.txt
+samples/_tmp/
+samples/_*.py
+web/scripts/probe_*
+web/scripts/seed_*.mjs
+web/_*.py
